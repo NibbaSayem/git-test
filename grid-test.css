@@ -1,0 +1,229 @@
+/* Css Variables  */
+:root{
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104,104,104,0.8);
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    color:var(--dark);
+    box-sizing: border-box;
+}
+body{
+    background:#ccc;
+    /* margin:30px 50px; */
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+.btn{
+    background: var(--dark);
+    color: var(--light);
+    padding:0.6rem 1.3rem;
+    text-decoration: none;
+    border:none;
+    cursor: pointer;
+    transition: .2s;
+}
+.btn:hover{
+    background: var(--light);
+    color: var(--dark);
+}
+img{
+    max-width:100%; 
+}
+.wrapper{
+    width:100%;
+    display: grid;
+    grid-gap:20px;
+}
+/* Navigation  */
+.main-nav{width:100%}
+.main-nav ul{
+    display: grid;
+    grid-gap:20px;
+    padding:0;
+    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+}
+.main-nav a{
+    background:var(--primary);
+    display: block;
+    text-decoration: none;
+    padding: 0.8rem;
+    text-align: center;
+    color: var(--dark);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow);
+    transition:background .2s;;
+}
+.main-nav a:hover{
+    background:var(--dark);
+    color:var(--light);
+}
+
+/* Top Container  */
+.top-container{
+    display: grid;
+    grid-gap: 20px;;
+    grid-template-areas: 
+    'showcase showcase top-box-a'
+    'showcase showcase top-box-b'
+    ;
+}
+ 
+/* Showcase  */
+.showcase { grid-area:showcase;
+    background: url('https://source.unsplash.com/random') no-repeat center;
+    background-size: cover;
+    min-height: 400px;
+    padding:2rem;
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+.showcase h1{
+    background: linear-gradient(to top right, #ff0000, #ffffff);
+    background-clip:text;
+    -webkit-background-clip:text;
+    font-size:3.5rem;
+    margin-bottom: 0;
+    color:transparent;
+    /* text-shadow: 2px 4px 2px rgb(255, 255, 255); */
+}
+.showcase p{
+    font-size:1.2rem;
+    margin-top: 0;
+    color:var(--light);
+}
+/* Top Boxes  */
+.top-box{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    box-shadow: var(--shadow);
+    background:var(--primary);
+    padding:1rem 2rem;
+}
+.top-box .price{
+    font-size:1.5rem;
+    color: #1b7bf8;
+}
+.top-box h3{
+    color: rgb(108, 0, 197);
+}
+.top-box .btn{
+    margin-bottom:.5rem;
+}
+.top-box-a{ grid-area: top-box-a;}
+.top-box-b{ grid-area: top-box-b;}
+
+/* Boxes   */
+.boxes{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+}
+.box{
+    box-shadow: var(--shadow);
+    text-align: center;
+    padding:1rem 1.5rem;
+}
+.box:hover{
+    color:var(--light);
+    background:#1b7bf8;
+    cursor:pointer;
+}
+
+/* Info Section  */
+.information{
+    background:var(--primary);
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
+    padding:3rem;
+    box-shadow: var(--shadow);
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content:center;
+    padding:0 2rem;
+}
+
+/* Portfolio Section  */
+.portfolio{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    box-shadow: var(--shadow);
+    padding:2.5rem;
+    background: var(--primary);
+}
+.portfolio img{
+    box-shadow: var(--shadow);
+    width:100%;
+    transition:.4s;
+}
+.portfolio img:hover{
+    filter:hue-rotate(122deg);
+    transform:scale(1.03);
+    cursor:pointer;
+}
+.follow{
+    display:block;
+    margin:0rem auto;
+}
+.follow a{
+    margin:0 1rem;
+    transition: .3s;
+}
+.follow a:hover img{
+    filter:invert(100%);
+}
+footer{
+   margin:1rem auto;
+   margin-bottom: 0;
+   margin-top: 0;
+}
+footer p{
+    margin-top: 0;
+}
+
+/* Media Querys  */
+@media (max-width:767px){
+    .top-container{
+        grid-template-areas: 
+        'showcase showcase'
+        'top-box-a top-box-b'
+        ;
+    } 
+    .showcase h1{
+        font-size:3rem;
+    }
+    .showcase p{
+        font-size:01rem;
+    }
+    .boxes{
+        grid-template-columns: 
+        
+        ;
+    }
+    .boxes{
+        grid-template-columns:auto auto;
+    }
+    img{
+        max-width: 100%;
+    }
+
+}
+@media (max-width:540px){
+   .main-nav ul{
+       grid-template-columns: 1fr;
+   }
+}
